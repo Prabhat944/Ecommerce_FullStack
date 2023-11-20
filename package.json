@@ -2,15 +2,19 @@
   "name": "ecommerce_fullstack",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "render-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Prabhat944/Ecommerce_FullStack.git"
   },
-  "author": "",
+  "author": "Prabhat Kumar",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Prabhat944/Ecommerce_FullStack/issues"
@@ -29,6 +33,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.1",
     "nodemailer": "^6.9.7",
+    "nodemon": "^3.0.1",
     "paytmchecksum": "^1.5.1",
     "stripe": "^14.5.0",
     "uuid": "^9.0.1",
